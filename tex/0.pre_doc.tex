@@ -1,0 +1,148 @@
+\documentclass[a4paper]{article}
+
+% 抑制警告
+\usepackage{xpatch}
+
+% 中文支持与字体选择
+\usepackage[no-math]{fontspec}
+
+\ExplSyntaxOn
+\xpatchcmd \fontspec_new_script:nn
+  { \__fontspec_warning:nxx }
+  { \__fontspec_info:nxx }
+  {}{\fail}
+\newfontscript{CJK}{none}
+\ExplSyntaxOff
+
+\usepackage[fontset = fandol]{ctex}
+\usepackage{roboto}
+
+% 数学支持
+\usepackage[tbtags]{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}, math-style=ISO, mathrm=sym]{unicode-math}
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage[per-mode = symbol]{siunitx}
+
+% 绘制三线表与跨页表格
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{tabularx}
+
+% 页边距
+\usepackage{geometry}
+
+% 页眉与页脚
+\usepackage{fancyhdr}
+
+% 图片支持
+\usepackage{graphicx}
+
+% 颜色支持
+\usepackage{color}
+\usepackage[dvipsnames, svgnames, x11names]{xcolor}
+
+% 超链接与书签支持
+\usepackage[hidelinks]{hyperref}
+
+% 绘图包
+\usepackage[all, pdf]{xy}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{circuitikz}
+\usepackage{pstricks-add}
+
+% 目录与标题
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{caption}
+
+% 参考文献
+\usepackage[comma, square, super]{natbib}
+
+% Misc
+\usepackage{import}
+\usepackage{verbatim}
+
+\setmainfont[
+    BoldFont       = STIXTwoText-Bold.otf,
+    ItalicFont     = STIXTwoText-Italic.otf,
+    BoldItalicFont = STIXTwoText-BoldItalic.otf
+    ]{STIXTwoText-Regular.otf}
+\setmathfont{STIXTwoMath-Regular.otf}
+
+% 页边距与页眉设置
+\geometry{a4paper, left = 3.17cm, right = 3.17cm, top = 2.54cm, bottom = 2.54cm}
+\setlength{\headheight}{32pt}
+\setlength{\headsep}{10pt}
+\fancyhead[C]{\includegraphics[scale = 0.06]{res/logo_title.eps}}
+\fancyfoot[C]{}
+\fancyhead[LR]{}
+\fancyfoot[LR]{}
+\pagestyle{fancy}
+
+% 标题设置
+\titleformat{\section}[block]{\centering\zihao{3}\sffamily}{\thesection\quad}{0em}{}[]
+\titleformat{\subsection}[block]{\zihao{4}\sffamily}{\thesubsection\quad}{0em}{}[]
+\titleformat{\subsubsection}[block]{\zihao{-4}\sffamily}{\thesubsubsection\quad}{0em}{}[]
+
+\titlecontents{section}[28bp]{\zihao{4}}{\contentslabel{28bp}}{\hspace*{-28bp}}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsection}[40bp]{\zihao{-4}}{\contentslabel{20bp}}{}{\titlerule*[0.5pc]{.}\contentspage}
+\titlecontents{subsubsection}[54bp]{\kaishu\zihao{-4}}{\contentslabel{28bp}}{}{\titlerule*[0.5pc]{.}\contentspage}
+
+\captionsetup{font = sf}
+
+% 行距设置
+\linespread{1.5}
+
+% 计数器
+\newcounter{code}[section]
+\numberwithin{figure}{section}
+\numberwithin{table}{section}
+\numberwithin{equation}{section}
+
+\renewcommand\thecode{\thesection-\arabic{code}}
+\renewcommand\thefigure{\thesection-\arabic{figure}}
+\renewcommand\thetable{\thesection-\arabic{table}}
+\renewcommand\theequation{\thesection-\arabic{equation}}
+
+% 代码环境配置
+\newcommand\inputcode[2]{
+    \linespread{1}
+    \refstepcounter{code}
+    \label{#1}
+    \begin{figure}[htbp!]
+        \rule[0.5ex]{\textwidth}{0.08em}
+        \noindent{\sffamily{\bfseries 代码片段\thecode：}#1} \\
+        \rule[0.5ex]{\textwidth}{0.05em}
+        \verbatiminput{#2}
+        \rule[0.5ex]{\textwidth}{0.08em}
+    \end{figure}
+    \linespread{1.5}
+}
+
+% Misc
+\pgfplotsset{compat=1.8}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+% 解决字体基线过低的问题
+\makeatletter
+\let\original@CJKsymbol\CJKsymbol
+\let\original@CJKpunctsymbol\CJKpunctsymbol
+\edef\CJKmovesymbol#1{\raise.05em\hbox{\original@CJKsymbol{#1}}}
+\edef\CJKmovepunctsymbol#1{\raise.05em\hbox{\original@CJKpunctsymbol{#1}}}
+% Only shift non-puncts because puncts seems in their place
+\def\CJKraisebaseline{
+    \let\CJKsymbol\CJKmovesymbol
+}
+\def\CJKresetbaseline{
+    \let\CJKsymbol\original@CJKsymbol
+}
+\makeatother
+
+% Activate!
+\CJKraisebaseline
+
+\bibliographystyle{gbt7714-numerical.bst}
