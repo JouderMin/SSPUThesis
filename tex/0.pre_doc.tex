@@ -77,7 +77,7 @@
 \geometry{a4paper, left = 3.17cm, right = 3.17cm, top = 2.54cm, bottom = 2.54cm}
 \setlength{\headheight}{32pt}
 \setlength{\headsep}{10pt}
-\fancyhead[C]{\includegraphics[scale = 0.06]{res/logo_title.eps}}
+\fancyhead[C]{\includegraphics[scale = 0.06]{../res/logo_title.eps}}
 \fancyfoot[C]{}
 \fancyhead[LR]{}
 \fancyfoot[LR]{}
@@ -114,10 +114,13 @@
     \refstepcounter{code}
     \label{#1}
     \begin{figure}[htbp!]
+        \vspace{-1em}
         \rule[0.5ex]{\textwidth}{0.08em}
         \noindent{\sffamily{\bfseries 代码片段\thecode：}#1} \\
         \rule[0.5ex]{\textwidth}{0.05em}
+        \vspace{-2em}
         \verbatiminput{#2}
+        \vspace{-1em}
         \rule[0.5ex]{\textwidth}{0.08em}
     \end{figure}
     \linespread{1.5}
