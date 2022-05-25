@@ -15,7 +15,6 @@
 \ExplSyntaxOff
 
 \usepackage[fontset = fandol]{ctex}
-\usepackage{roboto}
 
 % 数学支持
 \usepackage[tbtags]{amsmath}
@@ -23,7 +22,7 @@
 \usepackage{amssymb}
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}, math-style=ISO, mathrm=sym]{unicode-math}
 \usepackage{mathtools}
-\usepackage{physics}
+\usepackage[ISO]{diffcoeff}
 \usepackage[per-mode = symbol]{siunitx}
 
 % 绘制三线表与跨页表格
@@ -66,11 +65,20 @@
 \usepackage{import}
 \usepackage{verbatim}
 
-\setmainfont[
-    BoldFont       = STIXTwoText-Bold.otf,
-    ItalicFont     = STIXTwoText-Italic.otf,
-    BoldItalicFont = STIXTwoText-BoldItalic.otf
-    ]{STIXTwoText-Regular.otf}
+\setmainfont{STIXTwoText}[
+    UprightFont = *-Regular ,
+    BoldFont = *-Bold ,
+    ItalicFont = *-Italic ,
+    BoldItalicFont = *-BoldItalic ,
+    Extension = .otf ,
+    Scale = 1.0]
+\setsansfont{texgyreheros}[
+    UprightFont = *-regular ,
+    BoldFont = *-bold ,
+    ItalicFont = *-italic ,
+    BoldItalicFont = *-bolditalic ,
+    Extension = .otf ,
+    Scale = 0.9]
 \setmathfont{STIXTwoMath-Regular.otf}
 
 % 页边距与页眉设置
