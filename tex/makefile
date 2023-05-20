@@ -6,7 +6,7 @@ SSPUThesis.pdf: SSPUThesis.tex bibdatabase.bib
 	xelatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf SSPUThesis.tex
 	xelatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf SSPUThesis.tex
 
-clean:
+clean-unix:
 	rm *.aux
 	rm *.bbl
 	rm *.blg
@@ -14,3 +14,12 @@ clean:
 	rm *.out
 	rm *.gz
 	rm *.toc
+
+clean-nt:
+	del *.aux
+	del *.bbl
+	del *.blg
+	del *.log
+	del *.out
+	del *.gz
+	del *.toc
