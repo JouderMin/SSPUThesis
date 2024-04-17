@@ -1,4 +1,4 @@
-.PHONY: SSPUThesis.pdf clean ./SSPUBeamer.pdf
+.PHONY: SSPUThesis.pdf clean-nt clean-unix ./SSPUBeamer.pdf
 
 SSPUThesis.pdf: SSPUThesis.tex bibdatabase.bib
 	xelatex -synctex=1 -interaction=nonstopmode -file-line-error -pdf SSPUThesis.tex

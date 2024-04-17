@@ -6,7 +6,7 @@
     \includegraphics[width=8cm]{../res/title.eps}
 \end{figure*}
 \begin{center}
-    \zihao{-0}\heiti\bfseries
+    \zihao{-0}\sffamily\bfseries
     本科毕业设计（论文）
 \end{center}
 
@@ -17,20 +17,20 @@
 
 \begin{table*}[htbp!]
     \linespread{1}
-    \centering\zihao{3}\sffamily
-    \renewcommand\arraystretch{1.4}
-    \setlength\extrarowheight{2mm}
+    \centering\zihao{2}\sffamily
+    \renewcommand\arraystretch{1.2}
+    % \setlength\extrarowheight{2mm}
     \begin{tabularx}{0.8\textwidth}{cY}
-        \makebox[66bp][s]{题\hspace{\fill}目}：                                                 & \TitleCN          \\ \cline{2-2}
-        \makebox[66bp][s]{英\hspace{\fill}文\hspace{\fill}题\hspace{\fill}目}：                  & \TitleEN          \\ \cline{2-2}
-        \makebox[66bp][s]{学\hspace{\fill}号}：                                                 & \StudentID        \\ \cline{2-2}
-        \makebox[66bp][s]{姓\hspace{\fill}名}：                                                 & \StudentName      \\ \cline{2-2}
-        \makebox[66bp][s]{班\hspace{\fill}级}：                                                 & \StudentClass     \\ \cline{2-2}
-        \makebox[66bp][s]{专\hspace{\fill}业}：                                                 & \StudentSpecialty \\ \cline{2-2}
-        \makebox[66bp][s]{学\hspace{\fill}部\hspace{\fill}（\hspace{\fill}院\hspace{\fill}）}：  & \StudentAcademy   \\ \cline{2-2}
-        \makebox[66bp][s]{入\hspace{\fill}学\hspace{\fill}时\hspace{\fill}间}：                  & \StudentEnterYear \\ \cline{2-2}
-        \makebox[66bp][s]{指\hspace{\fill}导\hspace{\fill}老\hspace{\fill}师}：                  & \TeacherName      \\ \cline{2-2}
-        \makebox[66bp][s]{日\hspace{\fill}期}：                                                 & \today            \\ \cline{2-2}
+        \makebox[106bp][s]{题\hspace{\fill}目}：                                & \multicolumn{1}{X}{\raggedright\zihao{2} \TitleCN}  \\ \cline{2-2}
+        \makebox[106bp][s]{英\hspace{\fill}文\hspace{\fill}题\hspace{\fill}目}：& \multicolumn{1}{X}{\raggedright\zihao{-4} \TitleEN} \\ \cline{2-2}
+        \makebox[106bp][s]{学\hspace{\fill}号}：                                & \StudentID                                          \\ \cline{2-2}
+        \makebox[106bp][s]{姓\hspace{\fill}名}：                                & \StudentName                                        \\ \cline{2-2}
+        \makebox[106bp][s]{班\hspace{\fill}级}：                                & \StudentClass                                       \\ \cline{2-2}
+        \makebox[106bp][s]{专\hspace{\fill}业}：                                & \StudentSpecialty                                   \\ \cline{2-2}
+        \makebox[106bp][s]{学\hspace{\fill}部（\hspace{\fill}院）}：            & {\zihao{-2}\StudentAcademy}                         \\ \cline{2-2}
+        \makebox[106bp][s]{入\hspace{\fill}学\hspace{\fill}时\hspace{\fill}间}：& \StudentEnterYear                                   \\ \cline{2-2}
+        \makebox[106bp][s]{指\hspace{\fill}导\hspace{\fill}老\hspace{\fill}师}：& \TeacherName                                        \\ \cline{2-2}
+        \makebox[106bp][s]{日\hspace{\fill}期}：                                & \today                                              \\
     \end{tabularx}
     \renewcommand\arraystretch{1}
 \end{table*}
